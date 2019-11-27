@@ -1,7 +1,7 @@
 package com.belong.common.dozer.config;
 
-import com.belong.common.dozer.service.EJBGenerator;
 import com.belong.common.dozer.service.IGenerator;
+import com.belong.common.dozer.service.MyGenerator;
 import org.dozer.spring.DozerBeanMapperFactoryBean;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -28,6 +28,6 @@ public class DozerMapperConfig {
 
     @Bean
     public IGenerator ejbGenerator() {
-        return new EJBGenerator();
+        return new MyGenerator();
     }
 }

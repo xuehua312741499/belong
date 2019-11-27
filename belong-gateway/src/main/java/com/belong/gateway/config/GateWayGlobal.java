@@ -21,14 +21,14 @@ import java.util.Map;
  */
 @Configuration
 @Slf4j
-public class GlobalGateWayApplication {
+public class GateWayGlobal {
 
     private static String NAME = "application.yml";
 
     /**
      * 当前对象实例
      */
-    private static GlobalGateWayApplication globalGateWayApplication;
+    private static GateWayGlobal gateWayGlobal;
     private static String env;
 
     public static String getEnv() {
@@ -37,7 +37,7 @@ public class GlobalGateWayApplication {
 
     @Value("${spring.profiles.active}")
     public void setEnv(String env) {
-        GlobalGateWayApplication.env = env;
+        GateWayGlobal.env = env;
     }
 
     /**
@@ -45,17 +45,17 @@ public class GlobalGateWayApplication {
      */
     private static Map<String, String> map = new HashMap<String, String>();
 
-    public GlobalGateWayApplication() {
+    public GateWayGlobal() {
     }
 
     /**
      * 静态工厂方法
      */
-    public static synchronized GlobalGateWayApplication getInstance() {
-        if (globalGateWayApplication == null) {
-            globalGateWayApplication = new GlobalGateWayApplication();
+    public static synchronized GateWayGlobal getInstance() {
+        if (gateWayGlobal == null) {
+            gateWayGlobal = new GateWayGlobal();
         }
-        return globalGateWayApplication;
+        return gateWayGlobal;
     }
 
     /**
@@ -68,7 +68,7 @@ public class GlobalGateWayApplication {
             try {
                 if (StringUtils.isNotNull(env) && StringUtils.isNotEmpty(env)) {
                     NAME = "application-" + env + ".yml";
-                    System.err.println("配置环境为：" + NAME);
+                    log.debug("配置环境为：" + NAME);
                 }
                 yamlMap = YamlUtil.loadYaml(NAME);
                 value = String.valueOf(YamlUtil.getProperty(yamlMap, key));
