@@ -115,7 +115,7 @@ public class JsonExceptionHandler extends DefaultErrorWebExceptionHandler {
      * @date 2019/11/27 10:28
      */
     public static Map<String, Object> response(int status, String errorMessage) {
-        Map<String, Object> map = new HashMap<>();
+        Map<String, Object> map = new HashMap<>(3);
         map.put("code", status);
         map.put("msg", errorMessage);
         map.put("data", null);

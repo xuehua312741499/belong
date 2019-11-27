@@ -1,13 +1,14 @@
-/**
- * Copyright (C), 2019-9999, 喜梁门科技有限公司
- * FileName: ResponseConstans
- * Author:   FengYu
- * Date:     2019/7/22 16:09
- * Description: 响应常量
- * QQ:475788922
- */
 package com.belong.common.core.constant;
 
+/**
+ * @Description: 返回值常量
+ * @Author: fengyu
+ * @CreateDate: 2019/11/27 15:13
+ * @UpdateUser: fengyu
+ * @UpdateDate: 2019/11/27 15:13
+ * @UpdateRemark: 修改内容
+ * @Version: 1.0
+ */
 public class ResponseCodeConstans {
     /**
      * 未授权
@@ -27,7 +28,7 @@ public class ResponseCodeConstans {
     /**
      * 请求失败
      */
-    public static final Integer REQUEST_fAIL = -1;
+    public static final Integer REQUEST_FAIL = -1;
 
     /**
      * 请求成功

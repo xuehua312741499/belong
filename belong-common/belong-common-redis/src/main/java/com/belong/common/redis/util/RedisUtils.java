@@ -9,7 +9,13 @@ import javax.annotation.Resource;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Redis工具类
+ * @Description: Redis工具类
+ * @Author: fengyu
+ * @CreateDate: 2019/11/27 14:52
+ * @UpdateUser: fengyu
+ * @UpdateDate: 2019/11/27 14:52
+ * @UpdateRemark: 修改内容
+ * @Version: 1.0
  */
 @Component
 public class RedisUtils {

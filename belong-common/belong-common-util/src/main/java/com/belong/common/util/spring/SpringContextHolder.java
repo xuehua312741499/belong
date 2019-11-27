@@ -10,6 +10,15 @@ import org.springframework.context.ApplicationEvent;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
+/**
+ * @Description: SpringContextHolder
+ * @Author: fengyu
+ * @CreateDate: 2019/11/27 15:14
+ * @UpdateUser: fengyu
+ * @UpdateDate: 2019/11/27 15:14
+ * @UpdateRemark: 修改内容
+ * @Version: 1.0
+ */
 @Slf4j
 @Service
 @Lazy(false)
@@ -53,9 +62,9 @@ public class SpringContextHolder implements ApplicationContextAware, DisposableB
      * @date 2019/11/26 17:26
      */
     public static void clearHolder() {
-        //if (log.isDebugEnabled()) {
-        //    log.debug("清除SpringContextHolder中的ApplicationContext:" + applicationContext);
-        //}
+        if (log.isDebugEnabled()) {
+            log.debug("清除SpringContextHolder中的ApplicationContext:" + applicationContext);
+        }
         applicationContext = null;
     }
 

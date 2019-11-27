@@ -18,10 +18,13 @@ import java.nio.charset.StandardCharsets;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
- * @Classname ResponseUtil
- * @Description TODO
- * @Date 2019/9/25 11:44
- * @Created by FengYu
+ * @Description: ResponseUtil
+ * @Author: fengyu
+ * @CreateDate: 2019/11/27 15:13
+ * @UpdateUser: fengyu
+ * @UpdateDate: 2019/11/27 15:13
+ * @UpdateRemark: 修改内容
+ * @Version: 1.0
  */
 public class ResponseUtil {
     /**

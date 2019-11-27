@@ -22,6 +22,7 @@ import org.springframework.web.reactive.function.server.RouterFunctions;
 @AllArgsConstructor
 public class RouterFunctionConfiguration {
     private final HystrixFallbackHandler hystrixFallbackHandler;
+
     @Bean
     public RouterFunction<?> routerFunction() {
         return RouterFunctions

@@ -22,7 +22,7 @@ import java.util.Set;
  */
 @Component
 @Lazy(true)
-public class EJBGenerator implements IGenerator {
+public class EjbGenerator implements IGenerator {
 
     @Autowired
     protected Mapper dozerMapper;

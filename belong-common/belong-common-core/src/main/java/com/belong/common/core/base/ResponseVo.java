@@ -54,19 +54,19 @@ public class ResponseVo<T> implements Serializable {
     }
 
     public static <T> ResponseVo<T> failed() {
-        return restResult(null, ResponseCodeConstans.REQUEST_fAIL, null);
+        return restResult(null, ResponseCodeConstans.REQUEST_FAIL, null);
     }
 
     public static <T> ResponseVo<T> failed(String msg) {
-        return restResult(null, ResponseCodeConstans.REQUEST_fAIL, msg);
+        return restResult(null, ResponseCodeConstans.REQUEST_FAIL, msg);
     }
 
     public static <T> ResponseVo<T> failed(T data) {
-        return restResult(data, ResponseCodeConstans.REQUEST_fAIL, null);
+        return restResult(data, ResponseCodeConstans.REQUEST_FAIL, null);
     }
 
     public static <T> ResponseVo<T> failed(T data, String msg) {
-        return restResult(data, ResponseCodeConstans.REQUEST_fAIL, msg);
+        return restResult(data, ResponseCodeConstans.REQUEST_FAIL, msg);
     }
 
     public static <T> ResponseVo<T> failed(Integer code, String msg) {

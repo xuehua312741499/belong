@@ -18,6 +18,15 @@ import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
 
+/**
+ * @Description: redis切面
+ * @Author: fengyu
+ * @CreateDate: 2019/11/27 15:12
+ * @UpdateUser: fengyu
+ * @UpdateDate: 2019/11/27 15:12
+ * @UpdateRemark: 修改内容
+ * @Version: 1.0
+ */
 @Component
 @Aspect
 public class RedisAspect {
@@ -52,7 +61,7 @@ public class RedisAspect {
      * 环绕通知，方法拦截器
      */
     @Around("redisCachePoint()")
-    public Object WriteReadFromRedis(ProceedingJoinPoint point) {
+    public Object writeReadFromRedis(ProceedingJoinPoint point) {
         try {
             Method method = ((MethodSignature) point.getSignature()).getMethod();
             // 获取RedisCache注解

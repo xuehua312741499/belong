@@ -1,11 +1,3 @@
-/**
- * Copyright (C), 2019-9999, 喜梁门科技有限公司
- * FileName: AspectUtil
- * Author:   FengYu
- * Date:     2019/7/24 9:51
- * Description: 切面工具类
- * QQ:475788922
- */
 package com.belong.common.redis.util;
 
 import org.springframework.core.LocalVariableTableParameterNameDiscoverer;
@@ -15,6 +7,15 @@ import org.springframework.expression.spel.support.StandardEvaluationContext;
 
 import java.lang.reflect.Method;
 
+/**
+ * @Description: 切面工具类
+ * @Author: fengyu
+ * @CreateDate: 2019/11/27 14:52
+ * @UpdateUser: fengyu
+ * @UpdateDate: 2019/11/27 14:52
+ * @UpdateRemark: 修改内容
+ * @Version: 1.0
+ */
 public class AspectUtil {
     /**
      * 获取缓存的key
