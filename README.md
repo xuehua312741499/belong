@@ -29,6 +29,7 @@
    - belong-common-auth ----------------------------security鉴权包
    - belong-common-core ---------------------------系统常量字典等
    - belong-common-database --------------------------数据源
+   - belong-common-dozer ---------------------------对象属性转换工具
    - belong-common-exception ----------------------------全局异常管理
    - belong-common-log -----------------------------日志记录工厂
    - belong-common-mongodb --------------------------mongodb工具类
