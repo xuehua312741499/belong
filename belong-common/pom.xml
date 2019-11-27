@@ -27,5 +27,6 @@
         <module>belong-common-core</module>
         <module>belong-common-log</module>
         <module>belong-common-mongodb</module>
+        <module>belong-common-dozer</module>
     </modules>
 </project>
