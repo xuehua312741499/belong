@@ -1,0 +1,14 @@
+package ${package}.service;
+import cn.lioncity.platform.common.api.service.CoreService;
+import ${package}.domain.${className}DO;
+
+/**
+ *
+ * <pre>
+ * ${comments}
+ * </pre>
+ * <small> ${datetime} | ${author}</small>
+ */
+public interface I${className}Service extends CoreService<${className}DO> {
+
+}

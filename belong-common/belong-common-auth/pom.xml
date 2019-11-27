@@ -13,4 +13,10 @@
     <groupId>com.group</groupId>
     <artifactId>belong-common-auth</artifactId>
     <packaging>jar</packaging>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+    </dependencies>
 </project>

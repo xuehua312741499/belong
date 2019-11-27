@@ -26,5 +26,7 @@
         <module>belong-service-mobile</module>
         <!-- 管理端-->
         <module>belong-service-management</module>
+        <!-- 代码生成，单独使用-->
+        <module>belong-service-gen</module>
     </modules>
 </project>

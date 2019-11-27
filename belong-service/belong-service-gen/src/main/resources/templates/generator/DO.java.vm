@@ -1,0 +1,53 @@
+package ${package}.domain;
+#if(${hasCreateBy})
+import cn.lioncity.platform.common.api.domain.CrudEntity;
+#end
+#if(!${hasCreateBy})
+import cn.lioncity.platform.common.api.domain.DataEntity;
+#end
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableName;
+import lombok.*;
+#if(${hasDatetime})
+import java.util.Date;
+#end
+#if(${hasBigDecimal})
+#end
+
+/**
+ *
+ * <pre>
+ * ${comments}
+ * </pre>
+ * <small> ${datetime} | ${author}</small>
+ */
+@Data
+@Builder
+@NoArgsConstructor
+@TableName("${tableName}")
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+public class ${className}DO extends #if(${hasCreateBy}) CrudEntity #end #if(!${hasCreateBy}) DataEntity  #end {
+    private static final long serialVersionUID = -1L;
+
+    public static final String REDIS_KEY = "${tableName}:";
+
+    #foreach ($column in $columns)#if($column.attrname!="createBy"&&$column.attrname!="updateBy")
+        /** $column.comments */
+        #if ($column.attrType=="Date")
+            @TableField("$column.columnName")
+            private $column.attrType $column.attrname;
+        #end
+        #if ($column.attrType!="Date")
+            #if ($column.attrname!="deptId")
+                @TableField("$column.columnName")
+                private $column.attrType $column.attrname;
+            #end
+            #if ($column.attrname=="deptId")
+                //部门名称
+                @TableField(value = "deptName", exist = false)
+                private String deptName;
+            #end
+        #end
+    #end
+    #end
+}

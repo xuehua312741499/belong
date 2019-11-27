@@ -1,0 +1,70 @@
+package cn.lioncity.platform.admin.rf.controller;
+
+import cn.lioncity.platform.admin.base.common.controller.BaseController;
+import cn.lioncity.platform.common.dto.MyPageInfo;
+import cn.lioncity.platform.common.dto.Result;
+import io.swagger.annotations.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
+import lombok.AllArgsConstructor;
+import ${package}.domain.${className}DO;
+import ${package}.dto.${className}DTO;
+import ${package}.service.I${className}Service;
+import ${package}.vo.${className}ListVO;
+import ${package}.vo.${className}VO;
+
+
+/**
+ * ${className}
+ *
+ * <pre>
+ * ${comments}
+ * </pre>
+ * <small> ${datetime} | ${author}</small>
+ */
+@Api(tags = "${tableComments}")
+@RestController
+@AllArgsConstructor
+@RequestMapping("/${classname}")
+public class ${className}Controller extends BaseController {
+    private final I${className}Service ${classname}Service;
+
+
+    @ApiOperation(value = "获取分页数据", notes = "权限标识 sys:${classname}:view")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "pageNum", value = "页数", dataType = "String", paramType = "query"),
+            @ApiImplicitParam(name = "pageSize", value = "条数", dataType = "String", paramType = "query")
+    })
+    @PreAuthorize("hasAuthority('sys:${classname}:view')")
+    @GetMapping(value = "/list")
+    public Result<MyPageInfo<${className}ListVO>> list() {
+            ${className}DO ${classname}DO = new ${className}DO();
+        return Result.ok(generator.pageInfo2MyPageInfoDTO(${classname}Service.findPage(getPage(), ${classname}DO), ${className}ListVO.class));
+    }
+
+    @ApiOperation(value = "保存或修改数据", notes = "权限标识 sys:${classname}:edit")
+    @PostMapping(value = "")
+    @PreAuthorize("hasAuthority('sys:${classname}:edit')")
+    public Result save${className}(@RequestBody ${className}DTO ${classname}DTO) {
+            ${className}DO ${classname}DO = generator.convert(${classname}DTO, ${className}DO.class);
+            ${classname}Service.saveEntity(${classname}DO);
+        return Result.ok();
+
+    }
+
+    @ApiOperation(value = "根据ID获取详情", notes = "权限标识 sys:${classname}:view")
+    @PreAuthorize("hasAuthority('sys:${classname}:view')")
+    @GetMapping(value = "/{id}")
+    public Result<${className}VO> get(@ApiParam(required = true, value = "id") @PathVariable("id") String id) {
+        return Result.ok(generator.convert(${classname}Service.get(id), ${className}VO.class));
+    }
+
+    @ApiOperation(value = "根据ID删除数据", notes = "权限标识 sys:${classname}:remove")
+    @PreAuthorize("hasAuthority('sys:${classname}:remove')")
+    @DeleteMapping(value = "/{id}")
+    public Result delete(@ApiParam(required = true, value = "id") @PathVariable("id") String id) {
+            ${classname}Service.deleteById(id);
+        return Result.ok();
+    }
+}

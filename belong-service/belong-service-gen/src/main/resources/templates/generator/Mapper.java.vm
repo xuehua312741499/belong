@@ -1,0 +1,20 @@
+package cn.lioncity.platform.admin.rf.mapper;
+
+import cn.lioncity.platform.common.api.dao.CoreDao;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
+import ${package}.domain.${className}DO;
+
+/**
+ *
+ * <pre>
+ * ${comments}
+ * </pre>
+ * <small> ${datetime} | ${author}</small>
+ */
+@Mapper
+public interface ${className}Mapper extends CoreDao<${className}DO> {
+
+}

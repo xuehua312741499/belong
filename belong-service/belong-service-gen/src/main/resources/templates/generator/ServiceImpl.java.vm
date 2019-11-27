@@ -1,0 +1,44 @@
+package cn.lioncity.platform.admin.rf.serviceImpl;
+
+import cn.lioncity.platform.admin.rf.mapper.${className}Mapper;
+import cn.lioncity.platform.common.api.service.CoreServiceImpl;
+import cn.lioncity.platform.common.constant.DubboVersion;
+import com.alibaba.dubbo.config.annotation.Service;
+import cn.lioncity.platform.common.constant.ServiceNameConstants;
+import org.springframework.transaction.annotation.Transactional;
+import ${package}.domain.${className}DO;
+import ${package}.service.I${className}Service;
+
+
+/**
+ *
+ * <pre>
+ * ${comments}
+ * </pre>
+ * <small> ${datetime} | ${author}</small>
+ */
+@org.springframework.stereotype.Service
+@Service(version = DubboVersion.V1, group = ServiceNameConstants.ADMIN_SYS_RF, timeout = 5000)
+@Transactional(readOnly = true)
+public class ${className}ServiceImpl extends CoreServiceImpl<${className}Mapper, ${className}DO> implements I${className}Service {
+
+    #foreach ($column in $columns)
+        #if ($column.attrname=="deptId")
+            @Reference(version = DubboVersion.V1, group = ServiceNameConstants.ADMIN_SYS_SERVICE)
+            private ISysDeptService sysDeptService;
+
+            @Override
+            public ${className}DO get(String id) {
+                    ${className}DO ${classname}DO = baseMapper.get(id);
+                if (${classname}DO.getDeptId() != null) {
+                    SysDeptDO sysDeptDO = sysDeptService.selectById(${classname}DO.getDeptId());
+                    if (sysDeptDO != null) {
+                            ${classname}DO.setDeptName(sysDeptDO.getDeptName());
+                    }
+                }
+                return ${classname}DO;
+            }
+        #end
+    #end
+
+}

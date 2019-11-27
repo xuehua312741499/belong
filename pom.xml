@@ -38,6 +38,7 @@
 
         <mybatis-plus-boot-starter.version>3.2.0</mybatis-plus-boot-starter.version>
         <druid.version>1.1.14</druid.version>
+        <mysql.con.version>8.0.16</mysql.con.version>
 
         <springfox.version>2.9.2</springfox.version>
         <swagger.bootstrap.version>1.9.6</swagger.bootstrap.version>
@@ -80,7 +81,7 @@
                 <artifactId>spring-boot-starter-security</artifactId>
                 <version>${spring-security.version}</version>
             </dependency>
-
+            <!--springcloud Rabbitmq stream-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-stream-rabbit</artifactId>
@@ -94,6 +95,7 @@
                 <version>${netty-all.version}</version>
             </dependency>
 
+            <!--mybatisplus3.2-->
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
@@ -105,7 +107,21 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid-spring-boot-starter</artifactId>
                 <version>${druid.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>slf4j-api</artifactId>
+                        <groupId>org.slf4j</groupId>
+                    </exclusion>
+                </exclusions>
             </dependency>
+
+            <!-- Mysql驱动包 -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.con.version}</version>
+            </dependency>
+
 
 
             <!-- 解析客户端操作系统、浏览器等 -->
