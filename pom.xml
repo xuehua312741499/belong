@@ -19,6 +19,7 @@
         <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
         <spring-cloud-starter-stream-rabbit.version>2.1.2.RELEASE</spring-cloud-starter-stream-rabbit.version>
         <spring-security.version>2.2.0.RELEASE</spring-security.version>
+        <spring-cloud-starter-stream-rabbit.version>2.1.2.RELEASE</spring-cloud-starter-stream-rabbit.version>
 
         <lombok.version>1.18.6</lombok.version>
         <fastjson.version>1.2.49</fastjson.version>
@@ -78,6 +79,12 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-security</artifactId>
                 <version>${spring-security.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-stream-rabbit</artifactId>
+                <version>${spring-cloud-starter-stream-rabbit.version}</version>
             </dependency>
 
             <!-- netty all依赖配置-->
