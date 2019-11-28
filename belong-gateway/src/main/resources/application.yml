@@ -1,4 +1,6 @@
 spring:
+  main:
+    allow-bean-definition-overriding: true
   application:
     name: belong-gateway
   devtools:
@@ -21,7 +23,6 @@ spring:
             # 限流配置
             - StripPrefix=2
             - CacheRequest
-            - AndroidFilter
             - name: RequestRateLimiter
               args:
                 key-resolver: '#{@remoteAddrKeyResolver}'
