@@ -42,9 +42,14 @@
 - belong-eureka----------------------------------注册中心 端口:[13141，13142，13142]
 - belong-geteway-----------------------------------应用网关 端口:[9527]
 - belong-service -----------------------------------服务提供者管理
+    - belong-service-gen ---------------------------代码生成服务
     - belong-service-management ---------------------------后端管理接口服务提供
     - belong-service-mobile ---------------------------手机端接口服务提供
     - belong-service-wechat ---------------------------微信端接口服务提供
+        - belong-service-wechat-account ---------------------------微信端公众号接口服务提供
+        - belong-service-wechat-applet ---------------------------微信端小程序接口服务提供
+            - belong-service-wechat-applet-info ---------------------------微信端小程序个人中心接口服务提供
+        - belong-service-wechat-base ---------------------------公共模块
 - belong-service-api--------------------------------------远程调用接口提供
     - belong-service-management-api ---------------------------后端管理远程接口服务提供
     - belong-service-mobile-api ---------------------------手机端远程接口服务提供
