@@ -6,25 +6,18 @@
 
     <parent>
         <groupId>com.group</groupId>
-        <artifactId>belong-service</artifactId>
+        <artifactId>belong-service-wechat</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
     <groupId>com.group</groupId>
-    <artifactId>belong-service-wechat</artifactId>
-    <version>${belong.version}</version>
-
-    <packaging>pom</packaging>
-    <modules>
-        <!--微信公共模块-->
-        <module>belong-service-wechat-base</module>
-        <!--微信小程序-->
-        <module>belong-service-wechat-applet</module>
-        <!--微信公众号-->
-        <module>belong-service-wechat-account</module>
-    </modules>
-
+    <artifactId>belong-service-wechat-base</artifactId>
+    <packaging>jar</packaging>
     <dependencies>
-
+        <dependency>
+            <groupId>com.group</groupId>
+            <artifactId>belong-common-auth</artifactId>
+            <version>${belong.version}</version>
+        </dependency>
     </dependencies>
 </project>

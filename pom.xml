@@ -35,6 +35,8 @@
         <guava.version>26.0-jre</guava.version>
         <hutool.version>4.5.13</hutool.version>
         <dozer.version>5.5.1</dozer.version>
+        <!--jwt-->
+        <jwt.version>0.6.0</jwt.version>
 
         <mybatis-plus-boot-starter.version>3.2.0</mybatis-plus-boot-starter.version>
         <druid.version>1.1.14</druid.version>
@@ -247,6 +249,13 @@
                 <groupId>net.sf.dozer</groupId>
                 <artifactId>dozer</artifactId>
                 <version>${dozer.version}</version>
+            </dependency>
+
+            <!--JWT S-->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jwt.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

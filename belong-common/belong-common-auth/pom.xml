@@ -18,5 +18,35 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
+
+        <!-- JSON工具类 -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+
+        <!--jwt-->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>${jwt.version}</version>
+        </dependency>
+
+
+        <!-- redis模块-->
+        <dependency>
+            <groupId>com.group</groupId>
+            <artifactId>belong-common-redis</artifactId>
+            <version>${belong.version}</version>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- core模块-->
+        <dependency>
+            <groupId>com.group</groupId>
+            <artifactId>belong-common-core</artifactId>
+            <version>${belong.version}</version>
+            <optional>true</optional>
+        </dependency>
     </dependencies>
 </project>

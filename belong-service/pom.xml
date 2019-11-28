@@ -14,11 +14,6 @@
     <artifactId>belong-service</artifactId>
 
     <packaging>pom</packaging>
-
-    <dependencies>
-
-    </dependencies>
-
     <modules>
         <!-- 微信端-->
         <module>belong-service-wechat</module>
@@ -29,4 +24,12 @@
         <!-- 代码生成，单独使用-->
         <module>belong-service-gen</module>
     </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.group</groupId>
+            <artifactId>belong-common-swagger</artifactId>
+            <version>${belong.version}</version>
+        </dependency>
+    </dependencies>
 </project>

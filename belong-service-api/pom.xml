@@ -20,4 +20,12 @@
         <!-- 管理端-->
         <module>belong-service-management-api</module>
     </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.group</groupId>
+            <artifactId>belong-common-swagger</artifactId>
+            <version>${belong.version}</version>
+        </dependency>
+    </dependencies>
 </project>
