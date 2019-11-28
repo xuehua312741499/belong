@@ -20,14 +20,14 @@
             <groupId>com.group</groupId>
             <artifactId>belong-common-util</artifactId>
             <version>${belong.version}</version>
-            <optional>true</optional>
+            <scope>compile</scope>
         </dependency>
         <!-- 全局核心模块 -->
         <dependency>
             <groupId>com.group</groupId>
             <artifactId>belong-common-core</artifactId>
             <version>${belong.version}</version>
-            <optional>true</optional>
+            <scope>compile</scope>
         </dependency>
 
         <!-- 文件上传工具类 -->

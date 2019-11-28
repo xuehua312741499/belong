@@ -22,7 +22,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Accessors(chain = true)
 @ApiModel(description = "全局响应信息主体")
-public class ResponseVo<T> implements Serializable {
+public class ResponseVO<T> implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Getter
@@ -41,48 +41,48 @@ public class ResponseVo<T> implements Serializable {
     @ApiModelProperty(value = "数据")
     private T data;
 
-    public static <T> ResponseVo<T> ok() {
+    public static <T> ResponseVO<T> ok() {
         return restResult(null, ResponseCodeConstans.REQUEST_SUCCESS, null);
     }
 
-    public static <T> ResponseVo<T> ok(T data) {
+    public static <T> ResponseVO<T> ok(T data) {
         return restResult(data, ResponseCodeConstans.REQUEST_SUCCESS, null);
     }
 
-    public static <T> ResponseVo<T> ok(Integer code, String msg) {
+    public static <T> ResponseVO<T> ok(Integer code, String msg) {
         return restResult(code, msg);
     }
 
-    public static <T> ResponseVo<T> failed() {
+    public static <T> ResponseVO<T> failed() {
         return restResult(null, ResponseCodeConstans.REQUEST_FAIL, null);
     }
 
-    public static <T> ResponseVo<T> failed(String msg) {
+    public static <T> ResponseVO<T> failed(String msg) {
         return restResult(null, ResponseCodeConstans.REQUEST_FAIL, msg);
     }
 
-    public static <T> ResponseVo<T> failed(T data) {
+    public static <T> ResponseVO<T> failed(T data) {
         return restResult(data, ResponseCodeConstans.REQUEST_FAIL, null);
     }
 
-    public static <T> ResponseVo<T> failed(T data, String msg) {
+    public static <T> ResponseVO<T> failed(T data, String msg) {
         return restResult(data, ResponseCodeConstans.REQUEST_FAIL, msg);
     }
 
-    public static <T> ResponseVo<T> failed(Integer code, String msg) {
+    public static <T> ResponseVO<T> failed(Integer code, String msg) {
         return restResult(code, msg);
     }
 
-    private static <T> ResponseVo<T> restResult(T data, int code, String msg) {
-        ResponseVo<T> apiResult = new ResponseVo<>();
+    private static <T> ResponseVO<T> restResult(T data, int code, String msg) {
+        ResponseVO<T> apiResult = new ResponseVO<>();
         apiResult.setCode(code);
         apiResult.setData(data);
         apiResult.setMsg(msg);
         return apiResult;
     }
 
-    private static <T> ResponseVo<T> restResult(int code, String msg) {
-        ResponseVo<T> apiResult = new ResponseVo<>();
+    private static <T> ResponseVO<T> restResult(int code, String msg) {
+        ResponseVO<T> apiResult = new ResponseVO<>();
         apiResult.setCode(code);
         apiResult.setData(null);
         apiResult.setMsg(msg);

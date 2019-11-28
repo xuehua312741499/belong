@@ -3,6 +3,7 @@ package com.belong.service.gen.service.serviceimpl;
 import com.belong.service.gen.mapper.GeneratorMapper;
 import com.belong.service.gen.service.IGeneratorService;
 import com.belong.service.gen.util.GenUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,9 +25,9 @@ import java.util.zip.ZipOutputStream;
  * @Version: 1.0
  */
 @Service
+@Slf4j
 public class GeneratorServiceImpl implements IGeneratorService {
 
-    private static Logger log = LoggerFactory.getLogger(GeneratorServiceImpl.class);
     @Autowired
     GenUtils genUtils;
     @Autowired

@@ -11,14 +11,15 @@ import ${package}.service.I${className}Service;
 
 
 /**
- *
- * <pre>
- * ${comments}
- * </pre>
- * <small> ${datetime} | ${author}</small>
+ * @Description:    ${comments}
+ * @Author:          ${author}
+ * @CreateDate:      ${datetime}
+ * @UpdateUser:      ${author}
+ * @UpdateDate:     ${datetime}
+ * @UpdateRemark: 修改内容
+ * @Version: 1.0
  */
 @org.springframework.stereotype.Service
-@Service(version = DubboVersion.V1, group = ServiceNameConstants.ADMIN_SYS_RF, timeout = 5000)
 @Transactional(readOnly = true)
 public class ${className}ServiceImpl extends CoreServiceImpl<${className}Mapper, ${className}DO> implements I${className}Service {
 
@@ -40,5 +41,4 @@ public class ${className}ServiceImpl extends CoreServiceImpl<${className}Mapper,
             }
         #end
     #end
-
 }

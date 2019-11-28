@@ -11,11 +11,13 @@ import java.util.Date;
 #if(${hasBigDecimal})
 #end
 /**
- *
- * <pre>
- * ${comments}
- * </pre>
- * <small> ${datetime} | ${author}</small>
+ * @Description:    ${comments}
+ * @Author:          ${author}
+ * @CreateDate:      ${datetime}
+ * @UpdateUser:      ${author}
+ * @UpdateDate:     ${datetime}
+ * @UpdateRemark: 修改内容
+ * @Version: 1.0
  */
 @Data
 @Builder
@@ -37,11 +39,6 @@ public class ${className}VO implements Serializable {
             #end
             #if ($column.attrType!="Date")
                 private $column.attrType $column.attrname;
-                #if ($column.attrname=="deptId")
-                    //部门名称
-                    @ApiModelProperty(value = "部门名称")
-                    private String deptName;
-                #end
             #end
         #end
     #end

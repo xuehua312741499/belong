@@ -1,43 +1,73 @@
 package com.belong.common.core.base;
 
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.belong.common.dozer.service.IGenerator;
+import com.belong.common.util.ServletUtils;
+import com.belong.common.util.StringUtils;
 import com.belong.common.util.date.DateUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 
+import javax.annotation.Resource;
 import java.beans.PropertyEditorSupport;
 import java.util.Date;
 
 /**
+ * @Description: web层通用数据处理
+ * @Author: fengyu
+ * @CreateDate: 2019/11/27 16:17
+ * @UpdateUser: fengyu
+ * @UpdateDate: 2019/11/27 16:17
+ * @UpdateRemark: 修改内容
+ * @Version: 1.0
+ */
+@Slf4j
+public class BaseController {
 
-* @Description:    web层通用数据处理
-* @Author:         fengyu
-* @CreateDate:     2019/11/27 16:17
-* @UpdateUser:     fengyu
-* @UpdateDate:     2019/11/27 16:17
-* @UpdateRemark:   修改内容
-* @Version:        1.0
-*/
-public class BaseController
-{
-    protected final Logger logger = LoggerFactory.getLogger(BaseController.class);
+    @Resource
+    protected IGenerator generator;
 
     /**
-     * 将前台传递过来的日期格式的字符串，自动转化为Date类型
+     * 方法实现说明:将前台传递过来的日期格式的字符串，自动转化为Date类型
+     *
+     * @param binder
+     * @return void
+     * @throws
+     * @author fengyu
+     * @date 2019/11/28 14:44
      */
     @InitBinder
-    public void initBinder(WebDataBinder binder)
-    {
-        // Date 类型转换
-        binder.registerCustomEditor(Date.class, new PropertyEditorSupport()
-        {
+    public void initBinder(WebDataBinder binder) {
+        binder.registerCustomEditor(Date.class, new PropertyEditorSupport() {
             @Override
-            public void setAsText(String text)
-            {
+            public void setAsText(String text) {
                 setValue(DateUtils.parseDate(text));
             }
         });
+    }
+
+    /**
+     * 方法实现说明:设置请求分页数据
+     *
+     * @param
+     * @return void
+     * @throws
+     * @author fengyu
+     * @date 2019/11/28 14:43
+     */
+    protected Page startPage() {
+        Long pageNum = ServletUtils.getParameterToLong("pageNum");
+        Long pageSize = ServletUtils.getParameterToLong("pageSize");
+        if (StringUtils.isNull(pageNum) || StringUtils.isNull(pageSize)) {
+            //throw new PageException();
+        }
+        Page page = new Page();
+        page.setCurrent(pageNum);
+        page.setSize(pageSize);
+        return page;
     }
 }

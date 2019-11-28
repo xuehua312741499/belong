@@ -1,7 +1,7 @@
 package com.belong.gateway.util;
 
 import com.alibaba.fastjson.JSON;
-import com.belong.common.core.base.ResponseVo;
+import com.belong.common.core.base.ResponseVO;
 import com.belong.common.core.constant.Constants;
 import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.core.io.buffer.DataBufferUtils;
@@ -44,7 +44,7 @@ public class ResponseUtil {
         originalResponse.getHeaders().add("Content-Type", "application/json;charset=UTF-8");
         byte[] response = null;
         try {
-            response = JSON.toJSONString(ResponseVo.failed(code, msg)).getBytes(Constants.UTF8);
+            response = JSON.toJSONString(ResponseVO.failed(code, msg)).getBytes(Constants.UTF8);
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }

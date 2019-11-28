@@ -1,6 +1,6 @@
 package com.belong.gateway.handler;
 
-import com.belong.common.core.base.ResponseVo;
+import com.belong.common.core.base.ResponseVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
@@ -33,6 +33,6 @@ public class HystrixFallbackHandler implements HandlerFunction<ServerResponse> {
         Optional<Object> originalUris = serverRequest.attribute(GATEWAY_ORIGINAL_REQUEST_URL_ATTR);
         originalUris.ifPresent(originalUri -> log.error("网关执行请求:{}失败,hystrix服务降级处理！", originalUri));
         return ServerResponse.status(UN_KNOWX_ERROR).contentType(MediaType.APPLICATION_JSON)
-                .body(BodyInserters.fromObject(ResponseVo.failed(SERVICE_NOT_FOUND, "服务未启动完成,稍等一会,请尝试重新请求！")));
+                .body(BodyInserters.fromObject(ResponseVO.failed(SERVICE_NOT_FOUND, "服务未启动完成,稍等一会,请尝试重新请求！")));
     }
 }

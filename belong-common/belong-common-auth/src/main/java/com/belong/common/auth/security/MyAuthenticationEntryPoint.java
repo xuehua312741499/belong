@@ -1,7 +1,7 @@
 package com.belong.common.auth.security;
 
 import com.alibaba.fastjson.JSONObject;
-import com.belong.common.core.base.ResponseVo;
+import com.belong.common.core.base.ResponseVO;
 import com.belong.common.core.constant.ResponseCodeConstans;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
@@ -26,6 +26,6 @@ public class MyAuthenticationEntryPoint implements AuthenticationEntryPoint {
         //response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "未授权");
         response.setCharacterEncoding("utf-8");
         response.setContentType("application/json;charset=UTF-8");
-        response.getWriter().print(JSONObject.toJSONString(ResponseVo.failed(ResponseCodeConstans.UN_AUTHORIZED, "无权限或登陆失效!")));
+        response.getWriter().print(JSONObject.toJSONString(ResponseVO.failed(ResponseCodeConstans.UN_AUTHORIZED, "无权限或登陆失效!")));
     }
 }

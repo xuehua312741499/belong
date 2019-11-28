@@ -11,11 +11,13 @@ import java.util.Date;
 #end
 
 /**
- *
- * <pre>
- * ${comments}
- * </pre>
- * <small> ${datetime} | ${author}</small>
+ * @Description:    ${comments}
+ * @Author:          ${author}
+ * @CreateDate:      ${datetime}
+ * @UpdateUser:      ${author}
+ * @UpdateDate:     ${datetime}
+ * @UpdateRemark: 修改内容
+ * @Version: 1.0
  */
 @Data
 @Builder

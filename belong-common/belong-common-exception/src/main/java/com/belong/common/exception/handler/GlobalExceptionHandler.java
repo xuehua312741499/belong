@@ -1,14 +1,13 @@
 package com.belong.common.exception.handler;
 
-import com.belong.common.core.base.ResponseVo;
+import com.belong.common.core.base.ResponseVO;
+import com.belong.common.exception.base.PageException;
 import com.belong.common.exception.base.UnauthorizedException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.yaml.snakeyaml.constructor.DuplicateKeyException;
-
-import java.rmi.ServerException;
 
 /**
  * @Description: 异常处理器
@@ -33,9 +32,9 @@ public class GlobalExceptionHandler {
      * @date 2019/11/26 18:12
      */
     @ExceptionHandler({HttpRequestMethodNotSupportedException.class})
-    public ResponseVo handleException(HttpRequestMethodNotSupportedException e) {
+    public ResponseVO handleException(HttpRequestMethodNotSupportedException e) {
         log.warn(e.getMessage(), e);
-        return ResponseVo.failed(500, "不支持' " + e.getMethod() + "'请求");
+        return ResponseVO.failed(500, "不支持' " + e.getMethod() + "'请求");
     }
 
     /**
@@ -48,9 +47,9 @@ public class GlobalExceptionHandler {
      * @date 2019/11/27 9:50
      */
     @ExceptionHandler(RuntimeException.class)
-    public ResponseVo notFount(RuntimeException e) {
+    public ResponseVO notFount(RuntimeException e) {
         log.warn("运行时异常:", e);
-        return ResponseVo.failed("运行时异常:" + e.getMessage());
+        return ResponseVO.failed("运行时异常:" + e.getMessage());
     }
 
     /**
@@ -63,9 +62,9 @@ public class GlobalExceptionHandler {
      * @date 2019/11/27 9:51
      */
     @ExceptionHandler(DuplicateKeyException.class)
-    public ResponseVo handleDuplicateKeyException(DuplicateKeyException e) {
+    public ResponseVO handleDuplicateKeyException(DuplicateKeyException e) {
         log.warn(e.getMessage(), e);
-        return ResponseVo.failed("数据库中已存在该记录！");
+        return ResponseVO.failed("数据库中已存在该记录！");
     }
 
     /**
@@ -78,9 +77,9 @@ public class GlobalExceptionHandler {
      * @date 2019/11/27 9:51
      */
     @ExceptionHandler(Exception.class)
-    public ResponseVo handleException(Exception e) {
+    public ResponseVO handleException(Exception e) {
         log.warn(e.getMessage(), e);
-        return ResponseVo.failed("服务器错误，请联系管理员!");
+        return ResponseVO.failed("服务器错误，请联系管理员!");
     }
 
     /**
@@ -93,7 +92,21 @@ public class GlobalExceptionHandler {
      * @date 2019/11/27 9:52
      */
     @ExceptionHandler(UnauthorizedException.class)
-    public ResponseVo handle401(UnauthorizedException e) {
-        return ResponseVo.failed(401, e.getMessage());
+    public ResponseVO handle401(UnauthorizedException e) {
+        return ResponseVO.failed(401, e.getMessage());
+    }
+
+    /**
+     * 方法实现说明:分页错误
+     *
+     * @param e
+     * @return ResponseVo
+     * @throws
+     * @author fengyu
+     * @date 2019/11/28 15:15
+     */
+    @ExceptionHandler(PageException.class)
+    public ResponseVO handleCaptcha(PageException e) {
+        return ResponseVO.failed(e.getMessage());
     }
 }

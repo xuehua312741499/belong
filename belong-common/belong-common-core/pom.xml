@@ -44,19 +44,32 @@
             <artifactId>jackson-databind</artifactId>
         </dependency>
 
-
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
         </dependency>
 
+        <!--公共模块-->
         <dependency>
             <groupId>com.group</groupId>
             <artifactId>belong-common-util</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${belong.version}</version>
             <scope>compile</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.group</groupId>
+            <artifactId>belong-common-dozer</artifactId>
+            <version>${belong.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.group</groupId>
+            <artifactId>belong-common-mybatisplus</artifactId>
+            <version>${belong.version}</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
 </project>

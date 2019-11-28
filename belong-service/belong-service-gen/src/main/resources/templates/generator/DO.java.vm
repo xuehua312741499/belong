@@ -14,12 +14,15 @@ import java.util.Date;
 #if(${hasBigDecimal})
 #end
 
+
 /**
- *
- * <pre>
- * ${comments}
- * </pre>
- * <small> ${datetime} | ${author}</small>
+ * @Description:    ${comments}
+ * @Author:          ${author}
+ * @CreateDate:      ${datetime}
+ * @UpdateUser:      ${author}
+ * @UpdateDate:     ${datetime}
+ * @UpdateRemark: 修改内容
+ * @Version: 1.0
  */
 @Data
 @Builder
@@ -29,7 +32,7 @@ import java.util.Date;
 public class ${className}DO extends #if(${hasCreateBy}) CrudEntity #end #if(!${hasCreateBy}) DataEntity  #end {
     private static final long serialVersionUID = -1L;
 
-    public static final String REDIS_KEY = "${tableName}:";
+    public static final String REDIS_KEY = "${tableName}:" ;
 
     #foreach ($column in $columns)#if($column.attrname!="createBy"&&$column.attrname!="updateBy")
         /** $column.comments */
@@ -38,15 +41,8 @@ public class ${className}DO extends #if(${hasCreateBy}) CrudEntity #end #if(!${h
             private $column.attrType $column.attrname;
         #end
         #if ($column.attrType!="Date")
-            #if ($column.attrname!="deptId")
                 @TableField("$column.columnName")
                 private $column.attrType $column.attrname;
-            #end
-            #if ($column.attrname=="deptId")
-                //部门名称
-                @TableField(value = "deptName", exist = false)
-                private String deptName;
-            #end
         #end
     #end
     #end

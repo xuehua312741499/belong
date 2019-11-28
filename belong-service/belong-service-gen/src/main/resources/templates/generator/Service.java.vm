@@ -1,14 +1,17 @@
 package ${package}.service;
-import cn.lioncity.platform.common.api.service.CoreService;
-import ${package}.domain.${className}DO;
+import java.util.List;
+import com.baomidou.mybatisplus.extension.service.IService;
+
 
 /**
- *
- * <pre>
- * ${comments}
- * </pre>
- * <small> ${datetime} | ${author}</small>
+ * @Description:    ${comments}
+ * @Author:         ${author}
+ * @CreateDate:      ${datetime}
+ * @UpdateUser:     ${author}
+ * @UpdateDate:      ${datetime}
+ * @UpdateRemark: 修改内容
+ * @Version: 1.0
  */
-public interface I${className}Service extends CoreService<${className}DO> {
+public interface I${className}Service extends IService<${className}DO> {
 
 }
