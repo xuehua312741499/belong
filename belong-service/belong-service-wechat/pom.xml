@@ -12,8 +12,6 @@
 
     <groupId>com.group</groupId>
     <artifactId>belong-service-wechat</artifactId>
-    <version>${belong.version}</version>
-
     <packaging>pom</packaging>
     <modules>
         <!--微信公共模块-->
@@ -26,5 +24,10 @@
 
     <dependencies>
 
+        <dependency>
+            <groupId>com.group</groupId>
+            <artifactId>belong-common-swagger</artifactId>
+            <version>${belong.version}</version>
+        </dependency>
     </dependencies>
 </project>

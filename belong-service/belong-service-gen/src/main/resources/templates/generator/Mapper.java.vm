@@ -1,20 +1,19 @@
-package cn.lioncity.platform.admin.rf.mapper;
+package com.belong.service.wechat.applet.info.mapper;
 
-import cn.lioncity.platform.common.api.dao.CoreDao;
-
-import java.util.List;
-
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+
 import ${package}.domain.${className}DO;
 
 /**
- *
- * <pre>
- * ${comments}
- * </pre>
- * <small> ${datetime} | ${author}</small>
+ * @Description:    ${comments}
+ * @Author:          ${author}
+ * @CreateDate:      ${datetime}
+ * @UpdateUser:      ${author}
+ * @UpdateDate:     ${datetime}
+ * @UpdateRemark: 修改内容
+ * @Version: 1.0
  */
 @Mapper
-public interface ${className}Mapper extends CoreDao<${className}DO> {
-
+public interface ${className}Mapper extends BaseMapper<${className}DO> {
 }

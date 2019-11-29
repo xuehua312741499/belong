@@ -63,7 +63,10 @@
     - belong-geteway      网关
 
 ###  host配置
-- 127.0.0.1 	belong-mysql
-- 127.0.0.1 	belong-redis
-- 127.0.0.1 	belong-eureka
-- 127.0.0.1 	belong-config
+- 127.0.0.1 	belongMysqlMaster.com
+- 127.0.0.1 	belongMysqlSlave.com
+- 127.0.0.1 	belongRedis.com
+- 127.0.0.1 	belongEureka13141.com
+- 127.0.0.1 	belongEureka13142.com
+- 127.0.0.1 	belongEureka13143.com
+- 127.0.0.1 	belongConfig.com

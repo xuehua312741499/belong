@@ -1,5 +1,6 @@
 package ${package}.service;
-import java.util.List;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 
@@ -13,5 +14,12 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @Version: 1.0
  */
 public interface I${className}Service extends IService<${className}DO> {
+    /**
+     * 查询${className}DO列表
+     *
+     * @param ${className}DO
+     * @return ${className}DO集合
+     */
 
+    public IPage<${className}DO> select${className}DOList(IPage<${className}DO> page, QueryWrapper<${className}DO> queryWrapper);
 }

@@ -12,7 +12,6 @@
 
     <groupId>com.group</groupId>
     <artifactId>belong-service-management-api</artifactId>
-    <version>${belong.version}</version>
 
     <packaging>pom</packaging>
 </project>

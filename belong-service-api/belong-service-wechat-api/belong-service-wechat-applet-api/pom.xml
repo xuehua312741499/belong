@@ -6,12 +6,15 @@
 
     <parent>
         <groupId>com.group</groupId>
-        <artifactId>belong-service-api</artifactId>
+        <artifactId>belong-service-wechat-api</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
     <groupId>com.group</groupId>
-    <artifactId>belong-service-mobile-api</artifactId>
-
+    <artifactId>belong-service-wechat-applet-api</artifactId>
     <packaging>pom</packaging>
+    <modules>
+        <module>belong-service-wechat-applet-info-api</module>
+    </modules>
+    
 </project>

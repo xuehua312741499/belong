@@ -2,7 +2,7 @@
 spring:
   redis:
     database: 1
-    host: 127.0.0.1
+    host: belongRedis.com
     port: 6379
     password: 123456     # 密码（默认为空）
     timeout: 6000ms  # 连接超时时长（毫秒）
@@ -18,14 +18,14 @@ spring:
     druid:
       # 主库数据源
       master:
-        url: jdbc:mysql://localhost:3306/server?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
-        username: root
-        password: 123456
+        url: jdbc:mysql://49.235.91.219:3306/getoffer?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+        username: panda
+        password: e10adc3949ba59abbe56e057f20f883e
       # 从库数据源
       slave:
         #从数据源开关/默认关闭
         enabled: false
-        url: jdbc:mysql://localhost:3306/server?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+        url: jdbc:mysql://belongMysqlSlave.com:3306/getoffer?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
         username: root
         password: 123456
       # 初始连接数

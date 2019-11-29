@@ -36,17 +36,17 @@ import static springfox.documentation.builders.PathSelectors.regex;
 @EnableSwaggerBootstrapUI
 @Import(BeanValidatorPluginsConfiguration.class)
 public class SwaggerConfig {
-    @Value("${panda.swagger.title}")
+    @Value("${project.swagger.title}")
     private String title;
-    @Value("${panda.swagger.contactName}")
+    @Value("${project.swagger.contactName}")
     private String contactName;
-    @Value("${panda.swagger.contactUrl}")
+    @Value("${project.swagger.contactUrl}")
     private String contactUrl;
-    @Value("${panda.swagger.contactEmail}")
+    @Value("${project.swagger.contactEmail}")
     private String contactEmail;
-    @Value("${panda.swagger.version}")
+    @Value("${project.swagger.version}")
     private String version;
-    @Value("${panda.swagger.description}")
+    @Value("${project.swagger.description}")
     private String description;
 
     @Bean(value = "userApi")

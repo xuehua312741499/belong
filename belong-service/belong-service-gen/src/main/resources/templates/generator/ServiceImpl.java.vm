@@ -1,10 +1,9 @@
-package cn.lioncity.platform.admin.rf.serviceImpl;
+package com.belong.service.wechat.applet.info.serviceImpl;
 
 import cn.lioncity.platform.admin.rf.mapper.${className}Mapper;
-import cn.lioncity.platform.common.api.service.CoreServiceImpl;
-import cn.lioncity.platform.common.constant.DubboVersion;
-import com.alibaba.dubbo.config.annotation.Service;
-import cn.lioncity.platform.common.constant.ServiceNameConstants;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.transaction.annotation.Transactional;
 import ${package}.domain.${className}DO;
 import ${package}.service.I${className}Service;
@@ -21,24 +20,15 @@ import ${package}.service.I${className}Service;
  */
 @org.springframework.stereotype.Service
 @Transactional(readOnly = true)
-public class ${className}ServiceImpl extends CoreServiceImpl<${className}Mapper, ${className}DO> implements I${className}Service {
-
-    #foreach ($column in $columns)
-        #if ($column.attrname=="deptId")
-            @Reference(version = DubboVersion.V1, group = ServiceNameConstants.ADMIN_SYS_SERVICE)
-            private ISysDeptService sysDeptService;
-
-            @Override
-            public ${className}DO get(String id) {
-                    ${className}DO ${classname}DO = baseMapper.get(id);
-                if (${classname}DO.getDeptId() != null) {
-                    SysDeptDO sysDeptDO = sysDeptService.selectById(${classname}DO.getDeptId());
-                    if (sysDeptDO != null) {
-                            ${classname}DO.setDeptName(sysDeptDO.getDeptName());
-                    }
-                }
-                return ${classname}DO;
-            }
-        #end
-    #end
+public class ${className}ServiceImpl extends ServiceImpl<${className}Mapper, ${className}DO> implements I${className}Service {
+    /**
+     * 查询${className}DO列表
+     *
+     * @param ${className}DO
+     * @return ${className}DO集合
+     */
+    @Override
+    public IPage<${className}DO> select${className}DOList(IPage<${className}DO> page, QueryWrapper<${className}DO> queryWrapper){
+        return baseMapper.selectPage(page, queryWrapper);
+    }
 }

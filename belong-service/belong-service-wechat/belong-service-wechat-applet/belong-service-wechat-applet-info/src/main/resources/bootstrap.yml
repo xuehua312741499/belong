@@ -1,0 +1,58 @@
+server:
+  port: 0
+# 日志配置
+logging:
+  level:
+    com.server: debug
+    org.springframework: warn
+spring:
+  application:
+    name: belong-wechat-applet-info
+  cloud:
+    config:
+      uri: http://127.0.0.1:520
+      fail-fast: true
+      name: ${spring.application.name}
+      profile: ${spring.profiles.active}
+      discovery:
+        enabled: true
+        service-id: belong-config
+  profiles:
+    active: prod
+  devtools:
+    restart:
+      enabled: true
+  main:
+    allow-bean-definition-overriding: true
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+
+feign:
+  hystrix:
+    enabled: true
+    command:
+      default:  #default全局有效，service id指定应用有效
+        execution:
+          timeout:
+            enabled: true
+          isolation:
+            thread:
+              timeoutInMilliseconds: 5000 #断路器超时时间，默认1000ms
+
+
+eureka:
+  client: #客户端注册进eureka服务列表内
+    service-url:
+      defaultZone: http://fy:123456@belongEureka13141.com:13141/eureka
+      #defaultZone: http://belongEureka13141.com:13141/eureka/,http://belongEureka13142.com:13142/eureka/,http://belongEureka13143.com:13143/eureka/
+  instance:
+    instance-id: ${spring.application.name}:${server.port}
+    prefer-ip-address: true     #访问路径可以显示IP地址
+# 暴露监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

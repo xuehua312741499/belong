@@ -12,7 +12,10 @@
 
     <groupId>com.group</groupId>
     <artifactId>belong-service-wechat-api</artifactId>
-    <version>${belong.version}</version>
-
     <packaging>pom</packaging>
+    <modules>
+        <module>belong-service-wechat-applet-api</module>
+    </modules>
+    <dependencies>
+    </dependencies>
 </project>

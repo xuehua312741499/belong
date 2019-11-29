@@ -3,6 +3,7 @@ package com.belong.service.gen.controller;
 import cn.lioncity.platform.admin.base.common.controller.BaseController;
 import cn.lioncity.platform.common.dto.MyPageInfo;
 import cn.lioncity.platform.common.dto.Result;
+import com.belong.common.core.base.ResponseVO;
 import io.swagger.annotations.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,15 +44,12 @@ public class ${className}Controller extends BaseController {
     @PreAuthorize("hasAuthority('sys:${classname}:view')")
     @GetMapping(value = "/list")
     public ResponseVO<PageDataInfo<${className}ListVO>> list() {
-        Long pageNum= ServletUtils.getParameterToLong("pageNum");
-        Long pageSize= ServletUtils.getParameterToLong("pageSize");
-        if(StringUtils.isNull(pageNum)||StringUtils.isNull(pageSize)){
-            throw new PageException();
+        Long pageNum = ServletUtils.getParameterToLong("pageNum");
+        Long pageSize = ServletUtils.getParameterToLong("pageSize");
+        if (StringUtils.isNull(pageNum) || StringUtils.isNull(pageSize)) {
+            throw new PageException("请填写分页参数！");
         }
-        Page page = new Page();
-        page.setCurrent(pageNum);
-        page.setSize(pageSize);
-        return Result.ok(generator.convert(${classname}Service.findPage(getPage(), ${classname}DO), ${className}ListVO.class));
+        return ResponseVO.ok(Ipage2PageDataInfo(${classname}Service.select${classname}DOList(startPage(pageNum, pageSize), null), ${classname}ListVO.class));
     }
 
     @ApiOperation(value = "保存或修改数据", notes = "权限标识 sys:${classname}:edit")
@@ -59,8 +57,10 @@ public class ${className}Controller extends BaseController {
     @PreAuthorize("hasAuthority('sys:${classname}:edit')")
     public ResponseVO save${className}(@RequestBody ${className}DTO ${classname}DTO) {
             ${className}DO ${classname}DO = generator.convert(${classname}DTO, ${className}DO.class);
-            ${classname}Service.saveEntity(${classname}DO);
-        return Result.ok();
+        if (${classname}Service.save(${classname}DO)) {
+            return ResponseVO.ok();
+        }
+        return ResponseVO.failed();
 
     }
 
@@ -68,14 +68,19 @@ public class ${className}Controller extends BaseController {
     @PreAuthorize("hasAuthority('sys:${classname}:view')")
     @GetMapping(value = "/{id}")
     public ResponseVO<${className}VO> get(@ApiParam(required = true, value = "id") @PathVariable("id") String id) {
-        return Result.ok(generator.convert(${classname}Service.get(id), ${className}VO.class));
+        if (StringUtils.isEmpty(id)) {
+            throw new WxAppletParameterLossException();
+        }
+        return ResponseVO.ok(generator.convert(${classname}Service.get(id), ${className}VO.class));
     }
 
     @ApiOperation(value = "根据ID删除数据", notes = "权限标识 sys:${classname}:remove")
     @PreAuthorize("hasAuthority('sys:${classname}:remove')")
     @DeleteMapping(value = "/{id}")
     public ResponseVO delete(@ApiParam(required = true, value = "id") @PathVariable("id") String id) {
-            ${classname}Service.deleteById(id);
-        return Result.ok();
+        if (${classname}Service.removeById(id)) {
+            return ResponseVO.ok();
+        }
+        return ResponseVO.failed();
     }
 }

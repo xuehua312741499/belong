@@ -1,12 +1,12 @@
 package ${package}.domain;
 #if(${hasCreateBy})
-import cn.lioncity.platform.common.api.domain.CrudEntity;
+import com.belong.common.core.base.CrudEntity;
 #end
 #if(!${hasCreateBy})
-import cn.lioncity.platform.common.api.domain.DataEntity;
+import com.belong.common.core.base.DataEntity;
 #end
-import com.baomidou.mybatisplus.annotations.TableField;
-import com.baomidou.mybatisplus.annotations.TableName;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.*;
 #if(${hasDatetime})
 import java.util.Date;
